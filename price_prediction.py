@@ -228,20 +228,11 @@ print("True values:", y_test[0:4].values)
 
 
 #Ridge Regression to overcome overfitting
-parameters1 = [{'alpha': [0.00001, 0.0001,0.001,0.01,0.1,1, 10]}]
-RigeModel = Ridge()
-Grid1 = GridSearchCV(RigeModel, parameters1,cv=3)
-Grid1
-Grid1.fit(x_train_pr,y_train)
-BestRigeModel = Grid1.best_estimator_
-BestRigeModel
+RigeModel = Ridge(alpha=100)
+RigeModel.fit(x_train_pr,y_train)
+yhat_ridge = RigeModel.predict(x_test_pr)
 
-yhat_ridge = BestRigeModel.predict(x_test_pr)
 Title = 'Distribution  Plot of  Predicted Values vs Actual Values Using Ridge Regression'
 DistributionPlot(df['price'], yhat_ridge, "Actual Values", "Predicted Values", Title)
 
-print("Predicted values:", yhat_ridge[0:4])
-print("True values:", y_test[0:4].values)
-
-BestRigeModel.score(x_test_pr,y_test)
-
+RigeModel.score(x_test_pr,y_test)
