@@ -210,7 +210,6 @@ Title = 'Distribution  Plot of  Predicted Values vs Actual Values Using Training
 DistributionPlot(df['price'], poly.predict(x_train_pr), "Actual Values(Train)", "Predicted Values(Train)", Title)
 Title = 'Distribution  Plot of  Predicted Values vs Actual Values Using Test Data'
 DistributionPlot(df['price'], yhat_poly, "Actual Values(Test)", "Predicted Values(Test)", Title)
-#overfitting-fitting observed
 
 
 X_pr = pr.fit_transform(X)
